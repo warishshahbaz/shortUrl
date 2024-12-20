@@ -1,8 +1,32 @@
 // routes/authRoutes.js
 const express = require("express");
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 
 const router = express.Router();
+
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: login
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               googleToken:
+ *                 type: string
+ *                 example: dsfdsgggf745345hhfd
+ *             
+ *     responses:
+ *       201:
+ *         description: xjhgsgshjsj334dhwd
+ *       400:
+ *         description: Bad Request
+ */
 
 router.post("/login", async (req, res) => {
     const { googleToken } = req.body;

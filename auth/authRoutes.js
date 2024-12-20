@@ -4,7 +4,7 @@ const Users = require("../models/User"); // Assuming you have a Mongoose model d
 const router = express.Router();
 //14906643356-8q15jkrp70las9nn0d8dodg8dosd3sb9.apps.googleusercontent.com
 // Initialize Google OAuth2 client
-const client = new OAuth2Client("14906643356-8q15jkrp70las9nn0d8dodg8dosd3sb9...");
+const client = new OAuth2Client("14906643356-8q15jkrp70las9nn0d8dodg8dosd3sb9.apps.googleusercontent.com");
 
 router.post("/google/callback", async (req, res) => {
     const { credential } = req.body;
@@ -13,7 +13,7 @@ router.post("/google/callback", async (req, res) => {
         // Verify the Google token
         const ticket = await client.verifyIdToken({
             idToken: credential,
-            audience: "14906643356-8q15jkrp70las9nn0d8dodg8dosd3sb9...",
+            audience: "14906643356-8q15jkrp70las9nn0d8dodg8dosd3sb9.apps.googleusercontent.com",
         });
 
         const payload = ticket.getPayload();
