@@ -41,7 +41,7 @@ app.use("/api", urlRoutes);
 app.use("/topic", topicRoutes);
 app.use("/auth", authGoogle)
 app.use('/api-doc', apiDocs);
-app.use("/sign",routesAuth)
+app.use("/sign", routesAuth)
 
 // Set EJS as the templating engine
 app.set("view engine", "ejs");
@@ -49,6 +49,11 @@ app.set("views", path.join(__dirname, "views"));
 
 // Serve static files
 app.use(express.static(path.join(__dirname, "public")));
+
+// Fallback for all other routes
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 // Routes
 app.get("/", (req, res) => {
