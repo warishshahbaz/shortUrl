@@ -1,17 +1,11 @@
 version: "3.8"
 services:
   app:
-    build: .
+    build:
+      context: .
     ports:
       - "5000:5000"
     volumes:
-      - .:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
-  db:
-    image: mongo:5
-    ports:
-      - "27017:27017"
-environment:
-  - MONGO_URI="mongodb://localhost:27017"
+      - .:/usr/src/app
+      - /alter_node_js/node_modules
+    command: npm start

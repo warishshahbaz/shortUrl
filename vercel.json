@@ -1,9 +1,15 @@
 {
-    "builds": [
-      { "src": "server.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "server.js" }
+    "redirects": [
+      {
+        "source": "/login", 
+        "destination": "/api-docs", 
+        "permanent": true 
+      },
+      {
+        "source": "/another-old-route",
+        "destination": "/another-new-route",
+        "permanent": false 
+      }
     ]
   }
   
