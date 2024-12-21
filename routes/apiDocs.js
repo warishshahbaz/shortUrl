@@ -18,7 +18,7 @@ const router = express.Router();
  *                   type: string
  *                   example: 'Hello, Swagger!'
  */
-router.get('/docs', (req, res) => {
+router.get('/', (req, res) => {
   res.json({ message: 'Hello, Swagger!' });
 });
 
